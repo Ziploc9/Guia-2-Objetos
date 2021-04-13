@@ -2,6 +2,8 @@ package com.company;
 
 import java.time.LocalDate;
 import java.util.UUID;
+import java.util.Vector;
+
 
 public class Factura {
 
@@ -11,11 +13,13 @@ public class Factura {
     private double montoTotal;
     private Cliente clie;
 
-    public Factura (Cliente c, double m){
+    private Vector<ItemVenta> items = new Vector<>(10,1);
 
-        montoTotal = m;
-        clie = c;
 
+    public Factura(Cliente clie){
+
+        this.clie = clie;
+        montoTotal = 0;
     }
 
     private double descuento (){
@@ -26,8 +30,12 @@ public class Factura {
     }
 
     public void mostrarFactura (){
-        System.out.println("");
-        System.out.print("Factura[id= "+ idFactu.toString()
+
+        montoTotal = 0;
+
+        items.forEach((n) -> montoTotal+= n.getPrecioU() );
+
+        System.out.print("\nFactura[id= "+ idFactu.toString()
                             + ", fecha= "+ fecha.toString()
                             + ", monto= $"+ montoTotal
                             + ", monto desc= $"+ descuento()
@@ -37,5 +45,8 @@ public class Factura {
         System.out.print("]\n");
     }
 
+    public void agregarItem(ItemVenta item){
 
+        items.add(item);
+    }
 }

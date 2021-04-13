@@ -11,7 +11,11 @@ public class Main {
 
         dude.mostrarCliente();
 
-        Factura factu = new Factura(dude,1500);
+        Factura factu = new Factura(dude);
+
+        factu.agregarItem(new ItemVenta("Chocolates Z","ricos",10.0));
+        factu.agregarItem(new ItemVenta("Pasteles X","no tan ricos",35.0));
+        factu.agregarItem(new ItemVenta("Empanadas P","eh, zafan",60.0));
 
         factu.mostrarFactura();
 
