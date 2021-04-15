@@ -9,7 +9,7 @@ public class Factura {
 
     private final UUID idFactu = UUID.randomUUID();
     private final LocalDate fecha = LocalDate.now();
-
+//Es necesario montoTotal? Si se calcula en el momento de mostrar la factura
     private double montoTotal;
     private Cliente clie;
 
